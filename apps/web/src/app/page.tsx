@@ -1,5 +1,6 @@
 "use client";
 
+import { BuyerHero } from "@/components/buyer/buyer-hero";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,39 +8,6 @@ import { useState } from "react";
 
 // Textura de grão de papel para o fundo creme, subliminar (acabamento xilogravura)
 const TEXTURA_PAPEL_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")`;
-
-// Motivo de friso repetido nas divisões entre seções (dentes de serra)
-const FRISO_MOTIVO = (
-  <svg
-    viewBox="0 0 192 8"
-    aria-hidden
-    className="h-2 w-48 text-terracota"
-    fill="currentColor"
-  >
-    <path d="M0 8 8 0 16 8 24 0 32 8 40 0 48 8 56 0 64 8 72 0 80 8 88 0 96 8 104 0 112 8 120 0 128 8 136 0 144 8 152 0 160 8 168 0 176 8 184 0 192 8" />
-  </svg>
-);
-
-// Contorno irregular de carimbo para o badge "NOVA COLEÇÃO"
-const CLIP_CARIMBO =
-  "polygon(2% 10%, 9% 2%, 93% 3%, 99% 13%, 97% 85%, 90% 98%, 8% 96%, 1% 87%)";
-
-// Posicionamento dos quatro cantos ornamentados do banner
-const CANTOS_HERO = [
-  { chave: "canto-superior-esquerdo", classes: "top-0 left-0", rotacao: 0 },
-  { chave: "canto-superior-direito", classes: "top-0 right-0", rotacao: 90 },
-  { chave: "canto-inferior-esquerdo", classes: "bottom-0 left-0", rotacao: 270 },
-  { chave: "canto-inferior-direito", classes: "bottom-0 right-0", rotacao: 180 },
-];
-
-const CATEGORIAS = [
-  "Todos",
-  "Cerâmica e Barro",
-  "Renda Renascença",
-  "Talhas em Madeira",
-  "Palha & Fibra",
-  "Metal Trabalhado",
-];
 
 const PRODUTOS = [
   {
@@ -87,8 +55,6 @@ const PRODUTOS = [
 ];
 
 export default function HomeMarketplace() {
-  const [categoriaAtiva, setCategoriaAtiva] = useState("Todos");
-
   return (
     <div
       className="flex min-h-screen flex-col bg-creme font-sans"
@@ -164,84 +130,9 @@ export default function HomeMarketplace() {
 
       {/* Conteúdo Principal */}
       <main className="mx-auto w-full max-w-[1200px] px-6 pt-4 pb-8">
-        
-        {/* Categorias */}
-        <div className="flex items-center gap-3 overflow-x-auto hide-scrollbar">
-          {CATEGORIAS.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategoriaAtiva(cat)}
-              className={`shrink-0 rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-                categoriaAtiva === cat
-                  ? "bg-terracota text-branco border border-terracota"
-                  : "bg-branco text-marrom-escuro border border-borda hover:border-texto-secundario"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Friso decorativo: categorias → banner */}
-        <div className="mt-4 flex justify-center" aria-hidden>
-          {FRISO_MOTIVO}
-        </div>
 
         {/* Banner Hero */}
-        <section className="relative mt-4 h-[250px] overflow-hidden rounded-2xl bg-black">
-          <Image
-            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=80"
-            alt="Sertão ao pôr do sol"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover opacity-60 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-marrom-escuro/40" />
-          
-          {/* Moldura de cantos em estilo xilogravura */}
-          {CANTOS_HERO.map((canto) => (
-            <svg
-              key={canto.chave}
-              viewBox="0 0 64 64"
-              className={`pointer-events-none absolute size-16 opacity-70 ${canto.classes}`}
-              fill="none"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-            >
-              <g transform={`rotate(${canto.rotacao} 32 32)`}>
-                <path d="M4 64V24L24 4H64" />
-                <path d="M13 7V14M7 14h14M10 10l6 6M16 10l-6 6" />
-                <rect x="12" y="12" width="4" height="4" />
-              </g>
-            </svg>
-          ))}
-          
-          <div className="relative z-10 flex h-full flex-col justify-center p-8">
-            <span
-              style={{ clipPath: CLIP_CARIMBO }}
-              className="w-fit -rotate-1 bg-terracota px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-branco"
-            >
-              Nova Coleção
-            </span>
-            <h2 className="mt-3 font-serif text-2xl font-bold leading-tight text-branco sm:text-3xl">
-              O Legado de Caruaru e<br />Tracunhaém na sua casa
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-snug text-branco/80 md:w-[55%]">
-              Conheça as novas telhas esculpidas pelos grandes mestres artesãos do sertão pernambucano. Envio seguro com selo lacrado de autenticidade original.
-            </p>
-            <button className="mt-4 w-fit rounded-lg bg-terracota px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-branco transition-colors hover:bg-terracota-hover">
-              CONHECER OS MESTRES
-            </button>
-          </div>
-        </section>
-
-        {/* Friso decorativo: banner → Obras em Destaque */}
-        <div className="mt-5 flex justify-center" aria-hidden>
-          {FRISO_MOTIVO}
-        </div>
+        <BuyerHero/>
 
         {/* Obras em Destaque */}
         <section className="mt-4">
