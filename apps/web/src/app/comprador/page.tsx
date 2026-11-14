@@ -7,7 +7,6 @@ import { Toaster } from "sonner";
 import { BuyerHeader } from "@/components/buyer/buyer-header";
 import { BuyerHero } from "@/components/buyer/buyer-hero";
 import { CartDrawer } from "@/components/buyer/cart-drawer";
-import { CategoryFilters } from "@/components/buyer/category-filters";
 import { ProductCard } from "@/components/buyer/product-card";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { fakeApiService, obterSessaoUsuarioLogado } from "@/lib/fake-api";
