@@ -1,6 +1,7 @@
 "use client";
 
 import { BuyerHero } from "@/components/buyer/buyer-hero";
+import { SiteFooter } from "@/components/shared/site-footer";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -196,62 +197,7 @@ export default function HomeMarketplace() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-auto w-full border-t border-borda bg-branco px-6 py-5">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 md:flex-row">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="flex size-8 items-center justify-center rounded bg-terracota text-branco">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
-                <path d="M17.5 4.5V11" />
-                <path d="M14 2.8V11" />
-                <path d="M10.5 4V11" />
-                <path d="M7 5.5V11" />
-                <path d="M5 11.5H19" />
-                <path d="M12 11.5V16" />
-                <path d="M9 14.5 5.5 17" />
-              </svg>
-            </div>
-            <div>
-              <span className="block font-serif text-lg font-bold leading-none text-marrom-escuro">
-                Manuali
-              </span>
-              <span className="block text-[7px] font-bold tracking-widest text-marrom-escuro uppercase mt-0.5">
-                Pernambuco
-              </span>
-            </div>
-          </div>
-
-          <p className="text-center text-xs text-texto-secundario">
-            © 2026 Manuali. Todos os direitos reservados. Fomentando cultura pernambucana.
-          </p>
-
-          <div className="flex items-center gap-4 text-texto-secundario">
-            <a href="#" className="hover:text-terracota transition-colors">
-              {/* Instagram */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" strokeLinejoin="miter">
-                <rect width="17.6" height="17.6" x="3.2" y="3.2" rx="3" />
-                <rect width="8.4" height="8.4" x="7.8" y="7.8" rx="1.5" />
-                <path d="M16.9 7.1h.1" />
-              </svg>
-            </a>
-            <a href="#" className="hover:text-terracota transition-colors">
-              {/* Facebook */}
-              <svg width="18" height="18" viewBox="0 0 24 24">
-                <path d="M13.2 5H10.6c-1.6 0-2.6 1-2.6 2.6V10H6v3.1h2v7h3.1v-7h2.6l.6-3.1h-3.2V8c0-.6.4-.9 1-.9h1.7z" fill="currentColor" />
-              </svg>
-            </a>
-            <a href="#" className="hover:text-terracota transition-colors">
-              {/* YouTube */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" strokeLinejoin="miter">
-                <rect width="18" height="12.8" x="3" y="5.6" rx="2" />
-                <path d="m10 9.4 5 2.6-5 2.6z" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

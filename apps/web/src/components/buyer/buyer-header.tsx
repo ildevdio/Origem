@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { fakeApiService } from "@/lib/fake-api";
 import { PerfilUsuarioAutenticado } from "@/lib/types";
+import { SiteLogo } from "../shared/site-logo";
 
 interface PropriedadesBuyerHeader {
   quantidadeItensCarrinho: number;
@@ -38,29 +38,7 @@ export function BuyerHeader({
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         {/* Brand Logo - Fiel ao Figma */}
         <Link href="/comprador" className="flex items-center gap-2.5 group shrink-0">
-          <div className="flex size-9 items-center justify-center rounded-xl bg-[#C85A32] text-white shadow-md shadow-[#C85A32]/30 group-hover:scale-105 transition-transform">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2a6 6 0 0 0-6 6c0 4 6 14 6 14s6-10 6-14a6 6 0 0 0-6-6z" />
-              <circle cx="12" cy="8" r="2" />
-            </svg>
-          </div>
-          <div className="hidden sm:block">
-            <span className="font-serif text-xl font-bold tracking-tight text-[#2C221E] block leading-none">
-              MANUALI
-            </span>
-            <span className="text-[9px] uppercase font-bold tracking-widest text-[#C85A32] block mt-0.5">
-              Pernambuco
-            </span>
-          </div>
+          <SiteLogo/>
         </Link>
 
         {/* Input de Busca Integrada (Figma) */}
@@ -85,19 +63,6 @@ export function BuyerHeader({
               Histórias dos Mestres
             </a>
           </nav>
-
-          {/* Botão de Alternar Visão (Para facilidade do usuário) */}
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="hidden sm:flex h-9 rounded-full border-amber-800/20 bg-amber-50 text-xs font-semibold text-[#C85A32] hover:bg-amber-100"
-          >
-            <Link href="/artesao">
-              <Store className="mr-1.5 size-3.5" />
-              Espaço Artesão
-            </Link>
-          </Button>
 
           {/* Botão do Carrinho com Badge */}
           <button

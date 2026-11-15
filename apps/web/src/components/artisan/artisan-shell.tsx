@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fakeApiService, obterSessaoUsuarioLogado } from "@/lib/fake-api";
 import { PerfilUsuarioAutenticado } from "@/lib/types";
+import { SiteLogo } from "../shared/site-logo";
 
 // Perfil de demonstração usado quando não há sessão de artesão gravada
 export const PERFIL_ARTESAO_DEMO: PerfilUsuarioAutenticado = {
@@ -135,17 +136,7 @@ export function ArtisanShell({ children }: { children: React.ReactNode }) {
       className="flex items-center gap-2.5"
       onClick={() => setMenuLateralAberto(false)}
     >
-      <div className="flex size-9 items-center justify-center rounded-xl bg-[#C85A32] text-white shadow-md shadow-[#C85A32]/30">
-        <Store className="size-5" />
-      </div>
-      <div>
-        <span className="block font-serif text-lg font-bold leading-none text-[#2C221E]">
-          MANUALI
-        </span>
-        <span className="mt-0.5 block text-[9px] font-bold uppercase tracking-widest text-[#C85A32]">
-          Painel do Artesão
-        </span>
-      </div>
+      <SiteLogo/>
     </Link>
   );
 

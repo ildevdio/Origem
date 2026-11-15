@@ -1,26 +1,14 @@
+import { LucideAmphora } from "lucide-react";
+import { SiteLogo } from "./site-logo";
+
 export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-stone-200 bg-white py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:text-left sm:px-6">
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-xl bg-[#C85A32] text-white">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M12 2a6 6 0 0 0-6 6c0 4 6 14 6 14s6-10 6-14a6 6 0 0 0-6-6z" />
-              <circle cx="12" cy="8" r="2" />
-            </svg>
-          </div>
-          <div>
-            <span className="font-serif text-lg font-bold text-[#2C221E] block leading-none">
-              MANUALI
-            </span>
-            <span className="text-[8px] uppercase font-bold tracking-widest text-[#C85A32] block">
-              Mãos Pernambucanas
-            </span>
-          </div>
-        </div>
+        <SiteLogo/>
 
         <p className="text-xs text-[#6E6259]">
-          © 2026 Mãos Pernambucanas. Todos os direitos reservados. Fomento da cultura pernambucana.
+          © 2026 MANUALI. Todos os direitos reservados. Fomento da cultura pernambucana.
         </p>
 
         <div className="flex items-center gap-4 text-stone-500">

@@ -20,6 +20,7 @@ import { Toaster } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SiteLogo } from "../shared/site-logo";
 
 const ITENS_NAVEGACAO_ADMIN = [
   { href: "/admin", rotulo: "Início", icone: LayoutDashboard },
@@ -89,29 +90,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       className="flex items-center gap-2.5"
       onClick={() => setMenuLateralAberto(false)}
     >
-      <div className="flex size-9 items-center justify-center rounded-xl bg-[#C85A32] text-white shadow-md shadow-[#C85A32]/30">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 2a6 6 0 0 0-6 6c0 4 6 14 6 14s6-10 6-14a6 6 0 0 0-6-6z" />
-          <circle cx="12" cy="8" r="2" />
-        </svg>
-      </div>
-      <div>
-        <span className="block font-serif text-lg font-bold leading-none text-white">
-          MANUALI
-        </span>
-        <span className="mt-0.5 block text-[9px] font-bold uppercase tracking-widest text-[#C85A32]">
-          Administração
-        </span>
-      </div>
+      <SiteLogo/>
     </Link>
   );
 
@@ -119,8 +98,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen bg-[#FAF7F2] text-[#2C221E]">
       <Toaster position="top-right" richColors />
 
-      {/* Sidebar escura no desktop */}
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-[#2C221E] lg:flex">
+      {/* Sidebar no desktop */}
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-[#FEFEFE] lg:flex">
         <div className="border-b border-white/10 px-5 py-4">{marcaManuali}</div>
         {conteudoNavegacao}
         <div className="border-t border-white/10 p-4">
@@ -128,7 +107,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             asChild
             variant="outline"
             size="sm"
-            className="w-full rounded-xl border-white/20 bg-transparent text-xs font-semibold text-stone-300 hover:bg-white/10 hover:text-white"
+            className="w-full rounded-xl border-white/20 bg-transparent text-xs font-semibold text-stone-300 hover:bg-white/10 hover:text-black"
           >
             <Link href="/comprador">Ver Vitrine</Link>
           </Button>
@@ -142,7 +121,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             className="absolute inset-0 bg-black/60"
             onClick={() => setMenuLateralAberto(false)}
           />
-          <aside className="absolute left-0 top-0 flex h-full w-72 flex-col bg-[#2C221E] shadow-2xl">
+          <aside className="absolute left-0 top-0 flex h-full w-72 flex-col bg-[#FEFEFE] shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
               {marcaManuali}
               <button
